@@ -42,7 +42,7 @@ export function SignUpView() {
         <CardContent className="grid p-0 md:grid-cols-2 ">
           <SignUpForm />
           <div className="bg-radial from-primary to-chart-5 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
-            <img src="logo.svg" alt="LOGO" className="h-[92px] w-[92px] " />
+            <img src="/logo.svg" alt="LOGO" className="h-[92px] w-[92px] " />
             <p className="text-2xl font-semibold text-primary-foreground">
               Talk With Ai
             </p>
@@ -83,6 +83,7 @@ function SignUpForm() {
       },
       {
         onSuccess: () => {
+          setPending(false);
           router.push("/");
         },
         onError: ({ error }) => {
@@ -205,7 +206,7 @@ function SignUpForm() {
           <div className="text-center text-sm">
             Already have an account?{" "}
             <Link href="/sign-in" className="underline underline-offset-4">
-              Sign In
+              Sign Up
             </Link>
           </div>
         </div>

@@ -31,9 +31,9 @@ export function SignInView() {
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0 ">
         <CardContent className="grid p-0 md:grid-cols-2 ">
-          <SignIpForm />
+          <SignInForm />
           <div className="bg-radial from-primary to-chart-5 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
-            <img src="logo.svg" alt="LOGO" className="h-[92px] w-[92px] " />
+            <img src="/logo.svg" alt="LOGO" className="h-[92px] w-[92px] " />
             <p className="text-2xl font-semibold text-primary-foreground">
               Talk With Ai
             </p>
@@ -48,7 +48,7 @@ export function SignInView() {
   );
 }
 
-function SignIpForm() {
+function SignInForm() {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
@@ -71,6 +71,7 @@ function SignIpForm() {
       },
       {
         onSuccess: () => {
+          setPending(false);
           router.push("/");
         },
         onError: ({ error }) => {
