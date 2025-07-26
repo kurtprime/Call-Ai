@@ -20,6 +20,7 @@ export function HomeView() {
             },
           });
         }}
+        className="mt-4"
       >
         Sign out
       </Button>
