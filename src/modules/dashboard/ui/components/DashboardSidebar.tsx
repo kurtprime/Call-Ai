@@ -41,8 +41,7 @@ const secondSection = [
 ];
 
 export default function DashboardSidebar() {
-  // const pathname = usePathname();
-  const pathname = "/meetings";
+  const pathname = usePathname();
 
   return (
     <Sidebar>
@@ -64,9 +63,9 @@ export default function DashboardSidebar() {
                 <SidebarMenuItem key={elem.label}>
                   <SidebarMenuButton
                     className={cn(
-                      "h-10 border hover:bg-linear-to-r/oklch border-transparent from-primary/80 from-5% via-60% via-primary/40 to-primary/40",
+                      "h-10 border hover:text-primary-foreground hover:bg-gradient-to-r border-transparent from-primary/80 from-5% via-60% via-primary/40 to-primary/40",
                       pathname === elem.href &&
-                        "bg-linear-to-r/oklch text-primary-foreground hover:bg-primary/70 hover:text-primary-foreground"
+                        "bg-gradient-to-r text-primary-foreground hover:bg-primary/70 hover:text-primary-foreground"
                     )}
                     asChild
                   >
@@ -92,7 +91,7 @@ export default function DashboardSidebar() {
                 <SidebarMenuItem key={elem.label}>
                   <SidebarMenuButton
                     className={cn(
-                      "h-10 border hover:bg-linear-to-r/oklch border-transparent from-primary/80 from-5% via-60% via-primary/40 to-primary/40",
+                      "h-10 border hover:bg-linear-to-r/oklch hover:text-primary-foreground border-transparent from-primary/80 from-5% via-60% via-primary/40 to-primary/40",
                       pathname === elem.href &&
                         "bg-linear-to-r/oklch text-primary-foreground hover:bg-primary/70 hover:text-primary-foreground"
                     )}
