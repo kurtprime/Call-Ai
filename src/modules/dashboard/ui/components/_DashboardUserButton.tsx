@@ -28,7 +28,7 @@ export default function DashboardUserButton() {
   const { data, isPending } = authClient.useSession();
   const isMobile = useIsMobile();
   const router = useRouter();
-
+  //todo
   const onLogOut = () => {
     authClient.signOut({
       fetchOptions: {
