@@ -38,7 +38,6 @@ export default function DashboardUserButton() {
       },
     });
   };
-  console.log(data);
 
   if (isPending || !data?.user) {
     return null;
