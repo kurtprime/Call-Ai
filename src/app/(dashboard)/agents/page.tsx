@@ -13,7 +13,7 @@ export default async function page() {
     <HydrationBoundary state={dehydrate(queryClient)}>
       <Suspense fallback={<LoadingState title="Loading for agents" />}>
         <ErrorBoundary fallback={<ErrorState />}>
-          <AgentViews />;
+          <AgentViews />
         </ErrorBoundary>
       </Suspense>
     </HydrationBoundary>
