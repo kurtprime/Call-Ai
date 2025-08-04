@@ -1,5 +1,5 @@
 "use client";
 
 export function HomeView() {
-  return <div>HOME VIEW</div>;
+  return <div>HOMEd VIEW</div>;
 }
