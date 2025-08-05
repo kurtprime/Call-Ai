@@ -1,7 +1,7 @@
 import AgendIdView, {
   AgentIdErrorView,
   AgentIdLoadingView,
-} from "@/modules/agents/ui/views/AgendIdView";
+} from "@/modules/agents/ui/views/AgentIdView";
 
 import { getQueryClient, trpc } from "@/trpc/server";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
