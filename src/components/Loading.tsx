@@ -8,7 +8,7 @@ type Props = {
 
 export default function LoadingState({
   title = "Loading",
-  description = "Please wait",
+  description = "This may take a while",
 }: Props) {
   return (
     <div className="py-4 px-8 flex flex-1 items-center justify-center ">
