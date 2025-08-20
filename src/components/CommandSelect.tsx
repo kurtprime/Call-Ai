@@ -30,7 +30,6 @@ export default function CommandSelect({
   onSearch,
   value,
   placeholder = "Select an option",
-  inSearchable,
   className,
 }: Props) {
   const [open, setOpen] = useState(false);

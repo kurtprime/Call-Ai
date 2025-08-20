@@ -168,7 +168,7 @@ export default function MeetingForm({
                 variant="ghost"
                 disabled={isPending}
                 type="button"
-                onClick={() => onCancel()}
+                onClick={onCancel}
               >
                 Cancel
               </Button>
