@@ -1,13 +1,13 @@
 "use client";
 
 import { useTRPC } from "@/trpc/client";
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
-import { DataTable } from "../components/DataTable";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { columns } from "../components/Columns";
 import EmptyState from "@/components/Empty";
 import { useAgentFilters } from "../../hooks/useAgentFilters";
 import DataPagination from "../components/DataPagination";
 import { useRouter } from "next/navigation";
+import { DataTable } from "@/components/DataTable";
 
 export default function AgentViews() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function AgentViews() {
     trpc.agents.getMany.queryOptions({ ...filters })
   );
 
-  const { items, total, totalPages } = data;
+  const { items } = data;
 
   return (
     <div className="flex-1 pb-4 px-4 md:px-8 flex flex-col gap-y-4">

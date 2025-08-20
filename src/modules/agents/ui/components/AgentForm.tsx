@@ -2,7 +2,6 @@
 
 import { z } from "zod";
 import { useTRPC } from "@/trpc/client";
-import { useRouter } from "next/navigation";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AgentGetOne } from "../../types";
 import { useForm } from "react-hook-form";
@@ -34,7 +33,6 @@ export default function AgentForm({
   initialValues,
 }: AgentFormProps) {
   const trpc = useTRPC();
-  const router = useRouter();
   const queryClient = useQueryClient();
 
   const createAgent = useMutation(

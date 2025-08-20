@@ -1,4 +1,4 @@
-import { AlertCircle, Loader2Icon } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import React from "react";
 
 type Props = {
