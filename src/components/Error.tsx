@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function ErrorState({
-  title = "Error",
+  title = "Error Loading",
   description = "Something went wrong",
 }: Props) {
   return (
