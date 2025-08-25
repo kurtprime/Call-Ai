@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Talk AI
 
-## Getting Started
+Talk AI is an innovative platform that allows you to add intelligent AI agents to your meetings. These agents can follow instructions, interact with participants, and provide summaries, transcripts, and recordings of your calls.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **AI-Powered Agents**: Create and customize AI agents with specific instructions to assist in your meetings.
+- **Real-Time Interaction**: Agents can interact with participants during the call, providing information and performing tasks as needed.
+- **Meeting Summaries**: Automatically generate concise summaries of your meetings, highlighting key points and decisions.
+- **Transcripts and Recordings**: Access full transcripts and recordings of your calls for future reference.
+- **Secure Authentication**: Sign in using your email and password, or with your GitHub or Google accounts for a seamless experience.
+- **User-Friendly Dashboard**: Manage your agents and meetings through an intuitive and easy-to-use dashboard.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **API**: [tRPC](https://trpc.io/)
+- **ORM**: [Drizzle ORM](https://orm.drizzle.team/)
+- **Authentication**: [Better Auth](https://better-auth.dev/)
+- **Database**: [PostgreSQL](https://www.postgresql.org/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🏁 Getting Started
 
-## Learn More
+To get started with Talk AI, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Node.js](https://nodejs.org/en/) (v18.x or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. **Clone the repository**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/your-username/talk-ai.git
+   cd talk-ai
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Set up environment variables**:
+
+   Create a `.env.local` file in the root of your project and add the necessary environment variables. You can use the `.env.example` file as a template.
+
+4. **Run the development server**:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. **Open your browser**:
+
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application in action.
+
+## 📂 Folder Structure
+
+The project follows a modular architecture, with a clear separation of concerns. Here's a brief overview of the main directories:
+
+- **`/src/app`**: Contains the main application logic, including pages, layouts, and API routes.
+- **`/src/components`**: Reusable UI components used throughout the application.
+- **`/src/constants`**: Shared constants, such as pagination settings.
+- **`/src/db`**: Database-related files, including the schema and Drizzle ORM setup.
+- **`/src/hooks`**: Custom React hooks for handling state and logic.
+- **`/src/lib`**: Utility functions and libraries, such as authentication and helper functions.
+- **`/src/modules`**: Modular components of the application, such as agents, authentication, and meetings.
+- **`/src/trpc`**: tRPC setup, including the client, server, and routers.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
