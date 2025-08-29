@@ -90,17 +90,34 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "no API KEY" }, { status: 404 });
 
     const call = streamVideo.video.call("default", meetingId);
-    const realTimeClient = await streamVideo.video.connectOpenAi({
+    const realtimeClient = await streamVideo.video.connectOpenAi({
       call,
       openAiApiKey: openaiKey,
       agentUserId: existingAgent.id,
+      model: "gpt-4o-realtime-preview",
     });
-    realTimeClient.updateSession({
+    realtimeClient.updateSession({
       instructions: existingAgent.instructions,
+      voice: "alloy",
     });
-    realTimeClient.on("connected", () => {
-      console.log("Connected to Stream OpenAI service");
-    });
+    realtimeClient.on("connected", () =>
+      console.log("Connected to Stream OpenAI service")
+    );
+    realtimeClient.on("conversation.item.completed", (ev: string) =>
+      console.log("item completed", ev)
+    );
+    realtimeClient.on("conversation.updated", (ev: string) =>
+      console.log("conversation updated", ev)
+    );
+    realtimeClient.on("error", (err: string) =>
+      console.error("realtime error", err)
+    );
+    await realtimeClient.sendUserMessageContent([
+      {
+        type: "input_text",
+        text: "Hello — please greet the participants briefly.",
+      },
+    ]);
   } else if (eventType === "call.session_participant_left") {
     const event = payload as CallSessionParticipantLeftEvent;
     const meetingId = event.call_cid.split(":")[1];
@@ -124,7 +141,7 @@ export async function POST(request: NextRequest) {
     await db
       .update(meetings)
       .set({ status: "processing", endedAt: new Date() })
-      .where(and(eq(meetingId, meetings.id), eq(meetings.status, "active")));
+      .where(and(eq(meetings.id, meetingId), eq(meetings.status, "active")));
   } else if (eventType === "call.transcription_ready") {
     const event = payload as CallTranscriptionReadyEvent;
     const meetingId = event.call_cid.split(":")[1];
