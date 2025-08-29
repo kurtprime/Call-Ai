@@ -78,7 +78,9 @@ export default function MeetingIdView({ meetingId }: Props) {
         {isUpcoming && (
           <UpcomingState
             meetingId={meetingId}
-            onCancelMeeting={() => {}}
+            onCancelMeeting={() => {
+              router.push("/meetings");
+            }}
             isCancelling={false}
           />
         )}
