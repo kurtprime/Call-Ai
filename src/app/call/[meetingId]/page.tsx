@@ -1,5 +1,4 @@
 import ErrorState from "@/components/Error";
-import LoadingState from "@/components/Loading";
 import { auth } from "@/lib/auth";
 import { CallLoader } from "@/modules/call/ui/components/CallProvider";
 import CallView from "@/modules/call/ui/views/CallView";
