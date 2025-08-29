@@ -13,7 +13,6 @@ import { TRPCError } from "@trpc/server";
 import { meetingsInsertSchema, meetingUpdateSchema } from "../schemas";
 import { MeetingStatus } from "../types";
 import { streamVideo } from "@/lib/stream-video";
-import { create } from "domain";
 import GeneratedAvatarUri from "@/lib/avatar";
 
 export const meetingsRouter = createTRPCRouter({
