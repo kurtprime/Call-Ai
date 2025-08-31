@@ -19,6 +19,7 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { auth } from "@/lib/auth";
 import { authClient } from "@/lib/auth-client";
 import { ChevronDown, CreditCardIcon, LogOutIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -46,7 +47,7 @@ export default function DashboardUserButton() {
   if (isMobile) {
     return (
       <Drawer>
-        <DrawerTrigger className="rounded-lg border border-border/10 p-3 w-full flex items-center justify-between bg-sidebar-accent hover:bg-sidebar-accent/90 overflow-hidden">
+        <DrawerTrigger className="rounded-lg border  p-3 w-full flex items-center justify-between bg-sidebar-accent hover:bg-sidebar-accent/90 overflow-hidden">
           {data.user.image ? (
             <Avatar className="size-9 mr-3">
               <AvatarImage src={data.user.image} />
@@ -70,7 +71,10 @@ export default function DashboardUserButton() {
             <DrawerDescription>{data.user.email}</DrawerDescription>
           </DrawerHeader>
           <DrawerFooter>
-            <Button variant="outline" onClick={() => {}}>
+            <Button
+              variant="outline"
+              onClick={() => authClient.customer.portal()}
+            >
               <CreditCardIcon className="size-4 text-accent" /> Billing
             </Button>
             <Button variant="outline" onClick={onLogOut}>
@@ -84,7 +88,7 @@ export default function DashboardUserButton() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="rounded-lg border border-border/10 p-3 w-full flex items-center justify-between bg-sidebar-accent hover:bg-sidebar-accent/90 overflow-hidden">
+      <DropdownMenuTrigger className="rounded-lg border p-3 w-full flex items-center justify-between bg-sidebar-accent hover:bg-sidebar-accent/90 overflow-hidden">
         {data.user.image ? (
           <Avatar className="size-9 mr-3">
             <AvatarImage src={data.user.image} />
@@ -112,7 +116,10 @@ export default function DashboardUserButton() {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="cursor-pointer flex items-center justify-between">
+        <DropdownMenuItem
+          className="cursor-pointer flex items-center justify-between"
+          onClick={() => authClient.customer.portal()}
+        >
           Billing <CreditCardIcon className="size-4"> </CreditCardIcon>
         </DropdownMenuItem>
         <DropdownMenuItem
