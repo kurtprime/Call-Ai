@@ -4,7 +4,8 @@ import "./globals.css";
 import { TRPCReactProvider } from "@/trpc/client";
 import { Toaster } from "@/components/ui/sonner";
 import { NuqsAdapter } from "nuqs/adapters/next";
-
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -25,6 +26,8 @@ export default function RootLayout({
         <html lang="en">
           <body className={`${inter.className} antialiased`}>
             <Toaster />
+            <SpeedInsights />
+            <Analytics />
             {children}
           </body>
         </html>
