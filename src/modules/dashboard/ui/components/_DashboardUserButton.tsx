@@ -19,7 +19,6 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { auth } from "@/lib/auth";
 import { authClient } from "@/lib/auth-client";
 import { ChevronDown, CreditCardIcon, LogOutIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
