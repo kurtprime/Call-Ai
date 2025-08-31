@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { z } from "zod";
 import { FcGoogle } from "react-icons/fc";

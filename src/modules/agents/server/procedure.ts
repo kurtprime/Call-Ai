@@ -7,7 +7,7 @@ import {
   protectedProcedure,
 } from "@/trpc/init";
 import { agentInsertSchema, agentUpdateSchema } from "../schemas";
-import { and, count, desc, eq, getTableColumns, ilike, sql } from "drizzle-orm";
+import { and, count, desc, eq, getTableColumns, ilike } from "drizzle-orm";
 import {
   DEFAULT_PAGE,
   DEFAULT_PAGE_SIZE,
