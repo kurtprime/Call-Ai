@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { db } from "@/db";
-import { agents } from "@/db/schema";
+import { agents, meetings } from "@/db/schema";
 import {
   createTRPCRouter,
   premiumProcedure,
@@ -60,7 +60,7 @@ export const agentsRouter = createTRPCRouter({
       const [data] = await db
         .select({
           ...getTableColumns(agents),
-          meetingCount: sql<number>`5`,
+          meetingCount: db.$count(meetings, eq(meetings.agentId, agents.id)),
         })
         .from(agents)
         .where(
@@ -91,7 +91,7 @@ export const agentsRouter = createTRPCRouter({
       const data = await db
         .select({
           ...getTableColumns(agents),
-          meetingCount: sql<number>`9`,
+          meetingCount: db.$count(meetings, eq(meetings.agentId, agents.id)),
         })
         .from(agents)
         .where(
