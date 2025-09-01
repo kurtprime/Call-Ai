@@ -60,7 +60,7 @@ export default function AgentIdView({ agentId }: Props) {
 
   const [RemoveConfirmation, confirmRemove] = useConfirm(
     "Are you sure",
-    `The following action will remove ${data.meetingCount} assiocated meetings`
+    `The following action will remove ${data.meetingCount} associated meetings`
   );
 
   return (

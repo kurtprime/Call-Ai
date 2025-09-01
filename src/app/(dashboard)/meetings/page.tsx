@@ -18,7 +18,6 @@ interface Props {
 export default async function Meetings({ searchParams }: Props) {
   const filters = await loadSearchParams(searchParams);
   const session = await getCachedSession();
-
   if (!session) redirect("/sign-in");
 
   const queryClient = getQueryClient();

@@ -1,4 +1,4 @@
-import AgendIdView, {
+import AgentIdView, {
   AgentIdErrorView,
   AgentIdLoadingView,
 } from "@/modules/agents/ui/views/AgentIdView";
@@ -23,7 +23,7 @@ export default async function AgentPage({ params }: Props) {
     <HydrationBoundary state={dehydrate(queryClient)}>
       <Suspense fallback={<AgentIdLoadingView />}>
         <ErrorBoundary fallback={<AgentIdErrorView />}>
-          <AgendIdView agentId={agentId} />
+          <AgentIdView agentId={agentId} />
         </ErrorBoundary>
       </Suspense>
     </HydrationBoundary>
