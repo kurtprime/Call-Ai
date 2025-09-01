@@ -1,16 +1,15 @@
 import ErrorState from "@/components/Error";
 import LoadingState from "@/components/Loading";
-import { auth } from "@/lib/auth";
 import MeetingsListHeader from "@/modules/meetings/ui/components/MeetingListHeader";
 import MeetingView from "@/modules/meetings/ui/views/MeetingView";
 import { getQueryClient, trpc } from "@/trpc/server";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import React, { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import type { SearchParams } from "nuqs/server";
 import { loadSearchParams } from "@/modules/meetings/params";
+import { getCachedSession } from "@/lib/cached-session";
 
 interface Props {
   searchParams: Promise<SearchParams>;
@@ -18,9 +17,7 @@ interface Props {
 
 export default async function Meetings({ searchParams }: Props) {
   const filters = await loadSearchParams(searchParams);
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const session = await getCachedSession();
 
   if (!session) redirect("/sign-in");
 

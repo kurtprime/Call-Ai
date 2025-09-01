@@ -1,18 +1,15 @@
 import ErrorState from "@/components/Error";
 import LoadingState from "@/components/Loading";
-import { auth } from "@/lib/auth";
+import { getCachedSession } from "@/lib/cached-session";
 import UpgradeView from "@/modules/premium/ui/views/UpgradeView";
 import { getQueryClient, trpc } from "@/trpc/server";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import React, { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 
 export default async function page() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const session = await getCachedSession();
 
   if (!session) {
     redirect("/sign-in");

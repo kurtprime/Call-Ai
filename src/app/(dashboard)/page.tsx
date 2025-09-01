@@ -1,13 +1,9 @@
-import { auth } from "@/lib/auth";
+import { getCachedSession } from "@/lib/cached-session";
 import { HomeView } from "@/modules/home/ui/view/home-view";
-import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-
+  const session = await getCachedSession();
   if (!session) redirect("/sign-in");
 
   return <HomeView />;
