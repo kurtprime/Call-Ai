@@ -17,7 +17,7 @@ export default function NewMeetingDialog({
 
   return (
     <ResponsiveDialog
-      title="New Meeeting"
+      title="New Meeting"
       description="Create a new Meeting"
       open={open}
       onOpenChange={onOpenChange}
